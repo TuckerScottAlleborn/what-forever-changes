@@ -1,0 +1,33 @@
+# What Forever Changes
+
+Every change *World of Warcraft: Forever* makes to the Vanilla that returning veterans remember, set side by side. The whole site is that diff: each book reads one part of the game against Vanilla and sets out what changed. Alliance side only, in books that share one design system. Static HTML, no build step for the pages themselves.
+
+Live at https://tuckerscottalleborn.github.io/what-forever-changes/, served by GitHub Pages from `master`.
+
+It started on November 1, 2026 as a copy of the [Forever Codex](https://github.com/TuckerScottAlleborn/forever-codex) at that day's state (Patch 1.60.1, build 70707), rebranded around the diff. The two sites now go their own ways: this one stays the Vanilla-against-Forever comparison, while the codex can grow into a general guide as the game moves on.
+
+| Path | What it is |
+| --- | --- |
+| `index.html` | The landing page: the pitch, the calendar, what's different area by area (Vanilla beside Forever, each row pointing at its book), a "coming back as…" briefing for every Alliance class and race, then each book's table of contents |
+| `lore/` | Book I, **The Lore**: what's canon, what's new and what's still unwritten, in three parts, plus an epilogue and reading stack |
+| `classes/` | Book II, **The Classes**: how Forever changes the nine Alliance classes compared with Vanilla, with a narrated episode. Its leveling-speed tiers (1–20, 20–40, 40–60, 1–60) appear twice, in the `#leveling` table and in the strip on each class sheet, so change them together |
+| `classes/<class>/` | Share pages with their own Discord/Open Graph embed; they forward to that class's sheet |
+| `races/` | Book III, **The Races**: the five Alliance races against Vanilla after Blizzard's final October 26 racial pass, with race leans for every class and spec. The class sheets link into its leans |
+| `world/` | Book IV, **The World**: everything outside classes and races against Vanilla: the nine new dungeons and the old ones' keys and levels, the December raid tier, gear and stats, professions and camping, Legacy, transmog, regions and rulesets, what costs money, and PvP |
+| `companions/` | Book V, **The Companions**: every companion pet within an Alliance character's reach, as a checklist (checks are kept in the browser's `localStorage` only, under `what-forever-changes.companions`), with the beta's drop counts, a collecting route, difficulty tiers and the unsolved ones |
+| `appendix/` | **The Appendix**: a dated patch log, a filterable glossary of every new and changed name against Vanilla, and common questions |
+| `404.html` | What GitHub Pages serves for an address the site doesn't have: the masthead and a card for every book. It can open at any depth, so its links are absolute (`/what-forever-changes/…`) |
+| `codex.css`, `codex.js` | What every page shares (the file names are left over from the codex): tokens (both themes), each book's color (set by the page's `body` class), type, frames, the masthead, the sticky bar's shell, its reading progress and its habit of keeping the current section's link in view, action-bar slots, the "vs Vanilla" tags, the cross-book link (`a.xref`), the "next book" card, the footer |
+
+Each page links `codex.css` and keeps only its own layout inline. The masthead on every page lists Home, the five books and the appendix, and marks the page it's on with `aria-current="page"`, in that book's color. Its emblem, `#i-mark` in each page's sprite and `favicon.svg`, is a diamond with Vanilla's half outlined and Forever's half solid. Each book's sticky bar opens with the same icon as its cover on the landing page.
+
+Under the masthead, every page (and `404.html`) carries the same build stamp, `p.mast-build`: the patch and client build the site reads, now Patch 1.60.1, build 70707, with the server hotfixes of October 30, 2026. It links to the appendix's `#build` ledger, which dates each book against that build. When the site moves to a newer build, change the stamp on every page, the ledger and the patch log together.
+
+To add a book, add a folder with its own `index.html` and `body` class, a link in the `.mast-books` of every page and of `404.html`, its color in `codex.css`, an `<article class="book">` and a row in `.diffs` on the landing page, a card in `404.html`, and its date in the appendix's build ledger.
+
+## Building
+
+- `python og/build.py` (needs Edge and Pillow) regenerates the preview images (`og.png`, `lore/og.png`, `classes/og.png`, `races/og.png`, `companions/og.png`, `world/og.png`, `appendix/og.png`, `classes/<class>/og.png`), the class share pages, and `favicon.ico` / `apple-touch-icon.png`, drawn to match the hand-written `favicon.svg`.
+- `python podcast/build.py` turns `podcast/script.md` into the chaptered episode at `classes/audio/what-forever-changes-classes.mp3`. It uses [Kokoro](https://github.com/thewh1teagle/kokoro-onnx) (voice `af_heart`, run on the CPU from `%LOCALAPPDATA%\kokoro-tts`), and writes the chapter timings into `classes/audio/chapters.json` and the `#podcast-data` block in `classes/index.html`. Each `## Title {#id}` heading in the script is a chapter whose id matches a section on the classes page. `--samples <voice> ...` renders short voice samples to `podcast/samples/`.
+
+The race colors (`.c-human` and the rest in `codex.css`) are the site's own, not Blizzard's. Racial values follow the October 26 pass; where an older guide disagrees, that pass wins.

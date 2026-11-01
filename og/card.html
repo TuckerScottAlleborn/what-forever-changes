@@ -1,0 +1,70 @@
+<!doctype html>
+<!-- Source for ../og.png (1200x630 link-preview image for the home page). Regenerate with python og/build.py -->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Marcellus&family=Marcellus+SC&family=Alegreya:ital@0;1&family=Alegreya+Sans+SC:wght@700&display=swap">
+<style>
+  html, body { margin: 0; width: 1200px; height: 630px; overflow: hidden }
+  body {
+    background:
+      radial-gradient(ellipse 900px 420px at 50% -90px, rgba(207,154,82,.32), transparent 70%),
+      radial-gradient(ellipse 520px 320px at 1080px 560px, rgba(58,108,208,.22), transparent 70%),
+      radial-gradient(ellipse 520px 320px at 120px 560px, rgba(95,202,215,.12), transparent 70%),
+      #0d0c14;
+    color: #ece3cc; font-family: "Alegreya", Georgia, serif; position: relative;
+  }
+  .frame {
+    position: absolute; inset: 28px; border: 2px solid rgba(207,154,82,.55);
+    box-shadow: inset 0 0 0 6px #0d0c14, inset 0 0 0 8px rgba(207,154,82,.22);
+  }
+  .frame::before, .frame::after, .d1, .d2 { content: ""; position: absolute; width: 16px; height: 16px; background: #cf9a52; transform: rotate(45deg) }
+  .frame::before { top: -9px; left: -9px } .frame::after { top: -9px; right: -9px }
+  .d1 { bottom: -9px; left: -9px } .d2 { bottom: -9px; right: -9px }
+  .inner { position: absolute; left: 60px; right: 60px; top: 62px; display: grid; justify-items: center; gap: 12px; text-align: center }
+  .glass { width: 78px; height: 78px; color: #f4c76b; filter: drop-shadow(0 0 22px rgba(207,154,82,.6)) }
+  .eyebrow { font-family: "Alegreya Sans SC", sans-serif; font-weight: 700; letter-spacing: .14em; font-size: 24px; color: #cf9a52; text-transform: lowercase }
+  h1 {
+    margin: 0; font-family: "Marcellus SC", Georgia, serif; font-weight: 400; font-size: 96px; line-height: 1.02; letter-spacing: .02em;
+    background: linear-gradient(180deg, #f4c76b, #cf9a52 75%); -webkit-background-clip: text; background-clip: text; color: transparent;
+    filter: drop-shadow(0 3px 0 rgba(0,0,0,.6));
+  }
+  .thesis { font-size: 36px; font-style: italic; color: #ece2c8; margin: 4px 0 0 }
+  .thesis b { font-style: normal; color: #f4c76b; font-weight: 400 }
+  .books { position: absolute; left: 56px; right: 56px; bottom: 82px; display: grid; grid-template-columns: 1fr auto 1fr auto 1fr auto 1fr auto 1.25fr; align-items: center; gap: 12px; text-align: center }
+  .bk { display: grid; gap: 4px }
+  .bk .n { font-family: "Alegreya Sans SC", sans-serif; font-weight: 700; font-size: 17px; letter-spacing: .14em; text-transform: lowercase }
+  .bk b { font-family: "Marcellus SC", Georgia, serif; font-weight: 400; font-size: 32px; line-height: 1.05; white-space: nowrap }
+  .bk i { font-size: 18px; color: #b9ae96; white-space: nowrap }
+  .world .n, .world b { color: #ee9672 }
+  .lore .n, .lore b { color: #f4c76b }
+  .cls .n, .cls b { color: #8fb0f2 }
+  .race .n, .race b { color: #c39af2 }
+  .pets .n, .pets b { color: #84d39c }
+  .sep { width: 14px; height: 14px; background: #cf9a52; transform: rotate(45deg); box-shadow: 0 0 0 6px #0d0c14, 0 0 0 8px rgba(207,154,82,.45) }
+</style>
+</head>
+<body>
+<div class="frame"><i class="d1"></i><i class="d2"></i></div>
+<div class="inner">
+  <svg class="glass" viewBox="0 0 24 24">
+    <path d="M12 2.5 L21.5 12 L12 21.5 Z" fill="currentColor"/>
+    <path d="M12 2.5 L21.5 12 L12 21.5 L2.5 12 Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+  </svg>
+  <div class="eyebrow">world of warcraft: forever · every change from vanilla</div>
+  <h1>What Forever Changes</h1>
+  <p class="thesis">Vanilla on one side, Forever on the other: <b>every change</b>.</p>
+</div>
+<div class="books">
+  <div class="bk lore"><span class="n">book i</span><b>Lore</b><i>precedent, not destiny</i></div>
+  <span class="sep"></span>
+  <div class="bk cls"><span class="n">book ii</span><b>Classes</b><i>Classic, finished</i></div>
+  <span class="sep"></span>
+  <div class="bk race"><span class="n">book iii</span><b>Races</b><i>a kind of power</i></div>
+  <span class="sep"></span>
+  <div class="bk world"><span class="n">book iv</span><b>World</b><i>built beside the old</i></div>
+  <span class="sep"></span>
+  <div class="bk pets"><span class="n">book v</span><b>Companions</b><i>a new collection</i></div>
+</div>
+</body>
+</html>
